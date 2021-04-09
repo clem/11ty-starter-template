@@ -12,16 +12,18 @@ const PATHS = {
 module.exports = (env, argv) => ({
   target: 'web',
   entry: {
-    styles: './src/_assets/css/main.css'
+    main: './src/_assets/js/main.js',
+    styles: './src/_assets/scss/main.scss'
   },
   output: {
     chunkLoading: false,
     wasmLoading: false,
-    path: path.resolve(__dirname, '_site')
+    path: path.resolve(__dirname, '_site/js'),
+    filename: '[name].js'
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '/css/main.css'
+      filename: '../css/main.css'
     }),
     new FixStyleOnlyEntriesPlugin(),
     new PurgeCssPlugin({
@@ -32,10 +34,18 @@ module.exports = (env, argv) => ({
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        include: path.resolve(__dirname, 'src/_assets/'),
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('dart-sass'),
+            },
+          },
+          'postcss-loader',
+        ],
       },
       {
         test: /\.(svg|jpg|gif|png)$/,

@@ -7,5 +7,4 @@ A simple 11ty starter template with Nunjucks and Webpack.
 ## ToDo
 
 - Add support of `11ty-image` to generate images in next-gen formats
-- Add support of SASS/SCSS
 - Add blog part with navigation
