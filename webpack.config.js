@@ -10,10 +10,13 @@ const PATHS = {
 }
 
 module.exports = (env, argv) => ({
+  target: 'web',
   entry: {
     styles: './src/_assets/css/main.css'
   },
   output: {
+    chunkLoading: false,
+    wasmLoading: false,
     path: path.resolve(__dirname, '_site')
   },
   plugins: [

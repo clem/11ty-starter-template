@@ -40,8 +40,8 @@
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.2.0",
     "purgecss-webpack-plugin": "^4.0.3",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
     "webpack-fix-style-only-entries": "^0.6.1"
   }
 }
